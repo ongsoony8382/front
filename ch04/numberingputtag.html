@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      input[type='range'] {
+        width: 200px;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>숫자 관련 인풋 타입</h1>
+    <form action="#">
+      <div>
+        <label>
+          number: <input type="number" name="age" min="0" max="200" />
+        </label>
+      </div>
+
+      <div>
+        <label>
+          range: <input type="range" name="price" min="20" max="80" step="5" />
+          <span id="range_display">50</span>
+        </label>
+      </div>
+
+      <div>
+        <label
+          >date:
+          <input type="date" name="birth_date" />
+        </label>
+      </div>
+
+      <div>
+        <!-- '2025-10-10T14:12:12' -->
+        <label
+          >datetime:
+          <input type="datetime-local" name="birth_datetime" />
+        </label>
+
+        <div>
+          <label>time: <input type="time" name="birth_time" /></label>
+        </div>
+
+        <div>
+          <label>week: <input type="week" name="birth_week" /></label>
+        </div>
+      </div>
+
+      <div>
+        <input type="submit" value="확인" />
+      </div>
+    </form>
+    <script>
+      const $range = document.querySelector('input[type="range"]');
+      // type 속성이 "range"인 input 요소를 선택해서 변수에 저장함
+      const $rangeDisplay = document.querySelector('#range_display');
+      // id 가 range_display인 요소를 선택해서 변수에 저장함.
+      $rangeDisplay.innerText = $range.value;
+
+      const $date = document.querySelector(
+        'input[type="date"][name="birth_date"]'
+      );
+
+      const $datetime = document.querySelector('input[type="datetime-local"]');
+      $datetime.value = '2025-10-10T14:12:12';
+
+      // type 속성이 "date"이면서 name이 "birth_date"인 input 요소를 선택해서 변수에 저장함
+      const tomorrow = new Date();
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      //const tomorrow = new Date(today.getDate() + 1);
+      const year = tomorrow.getFullYear();
+      const mon = String(tomorrow.getMonth() + 1).padStart(2, '0');
+      const day = String(tomorrow.getDate()).padStart(2, '0');
+      const nowDate = `${year}-${mon}-${day}`;
+      $date.value = nowDate;
+      $date.setAttribute('min', nowDate);
+      console.log('nowDate:', nowDate);
+
+      $range.addEventListener('mousemove', function (e) {
+        $rangeDisplay.innerText = e.target.value;
+      });
+      // 문자열, 콜백함수 총 2개의 인자를 보냄.
+      // e에는 이벤트와 관련된 모든 정보, 객체가 들어감.
+    </script>
+  </body>
+</html>
+
+<!-- action은 목적지, 메소드 안 적으면 기본 방식은 get 방식-->
+<!-- 폼태그 사용시 제출 버튼을 누르면 백엔드로 데이터를 보냄 -->
+<!-- validation (유효성 검사), 조건 만족하지 않을 시 데이터를 보내지 않음. -->
+<!-- 데이터 전송시 주소창에 문자열이 붙음. -->
+<!--주소창에 물음표로 시작하는 ?key1=value&key2=value2&key3=value3 쿼리스트링 혹은 파라미터 방식 -->
+<!-- 쿼리 스트링을 쓰는 이유 : 백엔드에게 데이터 보내려고. 백엔드는 키는 아는데
+            벨류는 모름. 키는 백엔드와 프론트 사이의 약속된 값-->
+<!-- 데이터를 보내는 방식이 크게 두 가지가 있는데
+             쿼리스트링은 주소에다가 데이터를 덧붙여서 보내는 방식임. 다른 방식은 바디에 데이터를
+             실어서 보냄. 실을 때 json 형태로 많이 실어보냄. -->
+<!-- json이란 데이터를 표현하는 포맷(형식), 전에는 xml을 썼는데 그건 용량이 많이 들어서
+              json이 더 효율적임.  -->
+<!-- 키와 문자열은 무조건 쌍따옴표. -->
+<!-- 이름(nm), 나이(age), 주소(addr) -->
+<!-- {
+                       "students": [{}, {}, {}]
+                    } -->

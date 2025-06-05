@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>체크 관련 인풋 타입</h1>
+    <form action="#">
+      <div>
+        <label><input type="checkbox" name="typ" value="1" />유기농</label>
+      </div>
+
+      <div>
+        <label
+          ><input type="checkbox" name="typ" value="2" checked />무농약</label
+        >
+      </div>
+
+      <div>
+        <label><input type="radio" name="fruit" value="apple" />사과</label>
+        <label><input type="radio" name="fruit" value="grape" />포도</label>
+        <label><input type="radio" name="fruit1" value="orange" />오렌지</label>
+      </div>
+      <div>
+        <input type="submit" value="전송" />
+      </div>
+    </form>
+  </body>
+</html>
+<!-- html엔 정수 개념 없음. 전부다 문자열//
+
+ 데이터를 받을 때 이름이 같은 애가 여러개 날아오면 (typ=1, typ=2 ...) 
+ 배열로 받으면 됨.
+
+ <라디오 버튼>
+ 
+ 라디오 버튼 사용시에는 이름이 제일 중요함. 이름 같은 애들끼리 하나의 범주로 묶임. 
+ 만약 사과 포도 등등 과일이 있다면 단 하나만 선택할 수 있음. 
+ 오렌지는 fruit1이므로 체크해도 fruit에 체크가 안 빠짐. 
+ 라디오 버튼은 선택을 해제할 수 없음. 데이터가 하나는 무조건 날아감. 
+ 
+ -->

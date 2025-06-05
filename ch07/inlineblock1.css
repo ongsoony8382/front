@@ -1,0 +1,18 @@
+/*ul.case01 > li {
+  display: inline-block;
+  background-color: antiquewhite;
+  margin-right: 2em;
+}*/
+
+ul {
+  background-color: blue;
+}
+
+ul > li {
+  display: inline-block;
+  background-color: antiquewhite;
+}
+
+.case02 > :not(:last-child) {
+  margin-right: 2em;
+}

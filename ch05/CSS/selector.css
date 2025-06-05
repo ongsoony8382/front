@@ -1,0 +1,37 @@
+span {
+  color: plum;
+}
+
+span {
+  color: pink;
+}
+/* 우선 순위가 같다면 뒤에 적은 게 덮어씌워지면서 적용됨. */
+
+div {
+  color: olivedrab;
+}
+
+#red {
+  color: red;
+}
+
+div.blue {
+  color: brown;
+}
+
+div.blue.dark {
+  color: green;
+}
+
+.blue.dark {
+  color: grey !important;
+}
+.blue {
+  color: slateblue;
+}
+
+span,
+.dark,
+#red {
+  text-decoration: underline;
+}
