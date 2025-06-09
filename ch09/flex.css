@@ -1,0 +1,53 @@
+body{
+    margin: 0;
+
+}
+
+.container{
+    display: flex;
+    flex-direction: column; /*주축: 위에서 아래*/
+    
+    height: 100vh;
+}
+
+
+.header{
+    display: flex;
+    flex-basis: 100px;
+    align-items: flex-end;
+    background-color: dodgerblue;
+    padding: 12px;
+    gap: 12px;
+}
+
+.header > * {
+    background-color: yellow;
+    padding: 12px 0;
+    text-align: center;
+}
+
+.header > *:first-child{
+    flex-basis: 100px;
+}
+.header > *:last-child{
+    flex-grow: 1; /*남은 공간을 가져가서 늘어날 수 있어요.*/
+}
+
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    background-color: white;
+}
+
+.content{
+    padding: 24px;
+    background-color: skyblue;
+
+}
+
+.footer{
+    flex-basis: 60px;
+    background-color: tomato;
+}
