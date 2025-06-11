@@ -27,10 +27,11 @@ body{
 }
 
 .header > *:first-child{
-    flex-basis: 100px;
+    flex-basis: 100px; /*여유 공간이 있다면 100px를 차지해라.
+                        width: 100px;과는 조금 다름. */
 }
 .header > *:last-child{
-    flex-grow: 1; /*남은 공간을 가져가서 늘어날 수 있어요.*/
+    flex-grow: 1; /*남은 공간을 가져가서 늘어날 수 있음.*/
 }
 
 .main{
