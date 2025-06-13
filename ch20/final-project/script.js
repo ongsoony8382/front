@@ -81,4 +81,54 @@ for(const item of aboutCards){
 
     });
 
-    
+    /*const $contactTabs = document.querySelectorAll('#contact input[name=contact]');*/
+    const $contactTabs = document.querySelectorAll('#ct_1, #ct_2');
+    console.log($contactTabs);
+
+    const $contactSlideCon = document.querySelector('#contact .contact__slide-con')
+
+   $contactTabs.forEach((item, idx) => {
+      const marginLeft = [0, '-100vw'][idx];
+      
+      // 위 코드 내용을 풀어쓰면 아래와 같음. 
+      /* let marginLeft ;
+      if(idx == 0){
+        marginLeft = 0;
+      } else if (idx == 1){
+        marginLeft = '-100vw';
+      }
+
+      }*/
+     item.addEventListener('click', () => {
+      $contactSlideCon.style.marginLeft = marginLeft;
+
+
+        });
+
+    });
+
+    const $menuBtn = document.querySelector('header.header button.header__menu-btn');
+    const $headerNav = document.querySelector('header.header nav.header__nav');
+
+    $menuBtn.addEventListener('click', (e)=>{ 
+      
+      e.target.classList.toggle('on');
+      //$menuBtn으로 하면 지역 변수가 죽지 않기 때문에 죽이려고 e를 씀. 클로져 어쩌고  
+      $headerNav.classList.toggle('active');
+
+      e.stopPropagation(); //버블링 중지
+
+
+
+
+    });
+
+    const $body = document.querySelector('body');
+    $body.addEventListener('click', ()=>{
+      $menuBtn.classList.remove('on');
+      $headerNav.classList.remove('active');
+    });
+  
+
+
+
